@@ -1,0 +1,24 @@
+CREATE SCHEMA DWH;
+
+CREATE TABLE DWH.orders(
+   order_id INT UNIQUE,
+   delivery_date DATE,
+   user_id INT,
+   zipcode VARCHAR(50),
+   total float8,
+   item_count INT
+);
+
+CREATE TABLE DWH.dwh_orders(
+   order_id INT UNIQUE,
+   delivery_date DATE,
+   user_id INT,
+   zipcode VARCHAR(50),
+   city VARCHAR(50),
+   total float8,
+   item_count INT
+);
+
+COPY DWH.dwh_orders FROM 'C:\dwh_orders.csv' DELIMITER ',' CSV HEADER;
+
+
